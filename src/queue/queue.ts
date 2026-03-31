@@ -1,13 +1,13 @@
-import { Queue, ConnectionOptions } from 'bullmq';
+import { Queue } from 'bullmq';
 import IORedis from 'ioredis';
 import { config } from '../config/env';
 
-const connection = new IORedis(config.redisUrl, {
+export const redisConnection = new IORedis(config.redisUrl, {
   maxRetriesPerRequest: null,
 });
 
 export const queue = new Queue('aede', {
-  connection,
+  connection: redisConnection,
   defaultJobOptions: {
     removeOnComplete: true,
     removeOnFail: false,
@@ -20,5 +20,5 @@ export async function addJob(name: string, data: any, options?: any): Promise<vo
 
 export async function closeQueue(): Promise<void> {
   await queue.close();
-  await connection.quit();
+  await redisConnection.quit();
 }

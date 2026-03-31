@@ -1,44 +1,55 @@
 import { initDatabase } from './db/client';
-import { initScheduler } from './scheduler/cron';
+import { initScheduler, triggerAllPipelines } from './scheduler/cron';
+import { initWorker, closeWorker } from './queue/workers';
 import { closeQueue } from './queue/queue';
-import { closeWorker } from './queue/workers';
-import { triggerPipeline } from './scheduler/cron';
+import { BRANDS } from './config/brands';
 
 async function main(): Promise<void> {
-  console.log('🚀 AEDE - Autonomous Execution + Distribution Engine');
+  console.log('AEDE — Autonomous Execution + Distribution Engine');
+  console.log('     Multi-Brand Edition');
   console.log('====================================================\n');
 
+  const activeBrands = BRANDS.filter(b => b.active);
+  console.log(`Loaded ${BRANDS.length} brands (${activeBrands.length} active):\n`);
+  for (const brand of activeBrands) {
+    console.log(`  * ${brand.name} — ${brand.description}`);
+  }
+  console.log('');
+
   try {
-    // Initialize database
-    console.log('Initializing database...');
+    // Initialise database
+    console.log('Initialising database...');
     await initDatabase();
 
-    // Initialize scheduler
-    console.log('Starting scheduler...');
+    // Initialise workers and wait for them to be ready
+    initWorker();
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    // Initialise per-brand schedulers
     initScheduler();
 
-    // Run initial pipeline (optional - for testing)
+    // Run all pipelines immediately if --run flag is passed
     const args = process.argv.slice(2);
     if (args.includes('--run') || args.includes('-r')) {
-      console.log('\nRunning initial pipeline...');
-      await triggerPipeline();
+      await new Promise(resolve => setTimeout(resolve, 500));
+      await triggerAllPipelines();
     }
 
-    console.log('\n✅ AEDE is running...');
-    console.log('   - Pipeline scheduled daily at 7:00 AM');
-    console.log('   - Workers are active and waiting for jobs');
+    console.log('\nAEDE is running.');
+    console.log('Each brand pipeline fires on its own schedule (see above).');
+    console.log('Workers are active and waiting for jobs.');
     console.log('\nPress Ctrl+C to stop\n');
 
-    // Keep process running
+    // Graceful shutdown
     process.on('SIGINT', async () => {
-      console.log('\nShutting down...');
+      console.log('\nShutting down AEDE...');
       await closeQueue();
       await closeWorker();
       process.exit(0);
     });
 
   } catch (error: any) {
-    console.error('❌ Failed to start AEDE:', error.message);
+    console.error('Failed to start AEDE:', error.message);
     process.exit(1);
   }
 }
