@@ -217,6 +217,126 @@ export const BRANDS: BrandConfig[] = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────
+  // 8. StillHere — Social Media Presence Automation
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: 'stillhere',
+    name: 'StillHere',
+    description: 'Social media presence automation — keeps your brand alive while you focus on your business',
+    audience: 'Founders, solopreneurs, and small business owners who struggle to stay consistent on social media',
+    tone: 'empathetic, practical, motivating — speaks to the overwhelmed founder who knows they need to post but never has time',
+    topics: [
+      'Why consistency on social media beats perfection',
+      'How to stay visible online when you are too busy to post',
+      'Social media automation for founders who hate social media',
+      'The cost of going quiet on social media',
+      'Building an audience while running a business',
+      'Content batching strategies for busy entrepreneurs',
+      'Why your brand needs to show up even when you cannot',
+    ],
+    url: 'https://stillhere.app',
+    schedule: '0 0 14 * * *', // 2:00 PM daily
+    active: true,
+    cta: 'Keep your brand alive at StillHere',
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // 9. PromptAngel — Prompt Engineering for Vibe Coders
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: 'promptangel',
+    name: 'PromptAngel',
+    description: 'Get your prompt right before you vibe code — prompt engineering tool for AI-assisted developers',
+    audience: 'Developers, vibe coders, and non-technical founders using AI to build products',
+    tone: 'sharp, witty, insider — speaks the language of the AI-native builder generation',
+    topics: [
+      'Why your AI output is only as good as your prompt',
+      'Prompt engineering tips for vibe coders',
+      'How to get better results from Claude, GPT, and Cursor',
+      'Common prompting mistakes that waste hours',
+      'Structured prompting frameworks for software development',
+      'The difference between a bad prompt and a great one',
+      'Building faster with AI when you know how to ask',
+    ],
+    url: 'https://promptangel.app',
+    schedule: '0 0 15 * * *', // 3:00 PM daily
+    active: true,
+    cta: 'Get your prompt right at PromptAngel',
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // 10. CodeMama — Business Development Engine
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: 'codemama',
+    name: 'CodeMama',
+    description: 'Business development engine — AI-powered partner outreach and deal pipeline automation',
+    audience: 'Biotech and life science companies seeking pharma, investor, and research partners',
+    tone: 'professional, strategic, results-focused — the voice of a seasoned BD executive',
+    topics: [
+      'Business development strategy for biotech companies',
+      'How to build a partner pipeline that converts',
+      'Pharma and biotech partnership deal structures',
+      'AI-powered outreach for life science BD teams',
+      'Investor relations and fundraising for biotech',
+      'Building strategic alliances in the life sciences',
+      'The anatomy of a successful biotech partnership email',
+    ],
+    url: 'https://code-mama.vercel.app',
+    schedule: '0 0 16 * * *', // 4:00 PM daily
+    active: true,
+    cta: 'Automate your BD pipeline at CodeMama',
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // 11. MFS Autopilot — Marketing Funnel SaaS
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: 'mfsautopilot',
+    name: 'MFS Autopilot',
+    description: 'Marketing Funnel SaaS with AI post generation and Stripe billing — KeepAlive for founders',
+    audience: 'Founders and small business owners who want a full marketing funnel running on autopilot',
+    tone: 'direct, results-oriented, no-fluff — speaks to founders who want outcomes not features',
+    topics: [
+      'Marketing funnels that run without you',
+      'AI-generated content for your entire marketing stack',
+      'How to build a marketing autopilot for your business',
+      'Stop doing marketing manually — automate the funnel',
+      'Lead generation on autopilot for solopreneurs',
+      'The marketing stack every founder needs in 2025',
+      'Why most marketing funnels fail and how to fix yours',
+    ],
+    url: 'https://autopilot.vercel.app',
+    schedule: '0 0 17 * * *', // 5:00 PM daily
+    active: true,
+    cta: 'Put your marketing on autopilot',
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // 12. Marketing For SoloPreneurs
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: 'mfsolopreneurs',
+    name: 'MarketingForSoloPreneurs',
+    description: 'Marketing education and tools specifically built for solopreneurs and one-person businesses',
+    audience: 'Solopreneurs, freelancers, and one-person businesses who do their own marketing',
+    tone: 'peer-to-peer, practical, encouraging — one solopreneur talking to another',
+    topics: [
+      'Marketing on a budget as a solopreneur',
+      'How to market your business when you are the only employee',
+      'Content marketing strategies for one-person businesses',
+      'Building an audience without a marketing team',
+      'The solopreneur marketing stack that actually works',
+      'Email marketing for solopreneurs — what works in 2025',
+      'How to compete with bigger brands as a solo operator',
+    ],
+    url: 'https://marketingforsolopreneurs.com',
+    schedule: '0 0 18 * * *', // 6:00 PM daily
+    active: true,
+    cta: 'Market smarter as a solopreneur',
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
   // ADD NEW BRANDS BELOW THIS LINE
   // Copy the block above, change the fields, set active: true, and you are done.
   // ─────────────────────────────────────────────────────────────────────────
